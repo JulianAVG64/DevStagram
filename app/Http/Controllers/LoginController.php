@@ -17,5 +17,13 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+
+        // Comprobar credenciales correctas
+        if(!auth()->attempt($request->only('email', 'password'))){
+            return back()->with('mensaje', 'Credenciales Incorrectas');
+        }
+
+        // El usuario existe
+        return redirect()->route('posts.index');
     }
 }
