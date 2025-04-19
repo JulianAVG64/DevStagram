@@ -30,19 +30,19 @@ class RegisterController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        // // Crear registro
-        // User::create([
-        //     'name' => $request->name,
-        //     'username' => $request->username,
-        //     'email' => $request->email,
-        //     'password' => Hash::make( $request->password ) 
-        // ]);
-
-        // Autenticar un usuario
-        auth()->attempt([
+        // Crear registro
+        User::create([
+            'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
-            'password' => $request->password
+            'password' => Hash::make( $request->password ) 
         ]);
+
+        // // Autenticar un usuario
+        // auth()->attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ]);
 
         // Otra forma de autenticar
         auth()->attempt($request->only('email', 'password'));
