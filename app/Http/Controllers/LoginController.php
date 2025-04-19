@@ -19,7 +19,7 @@ class LoginController extends Controller
         ]);
 
         // Comprobar credenciales correctas
-        if(!auth()->attempt($request->only('email', 'password'))){
+        if(!auth()->attempt($request->only('email', 'password'), $request->remember)){
             return back()->with('mensaje', 'Credenciales Incorrectas');
         }
 
