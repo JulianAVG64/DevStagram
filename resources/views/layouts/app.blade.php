@@ -16,7 +16,7 @@
 
                 @auth
                     <nav class="flex gap-2 items-center">
-                        <a class="font-bold text-gray-600 text-sm" href="{{ route('login') }}">
+                        <a class="font-bold text-gray-600 text-sm"">
                             Hola: <span class="font-normal">{{ auth()->user()->username }}</span>
                         </a>
                         
