@@ -24,6 +24,6 @@ class LoginController extends Controller
         }
 
         // El usuario existe
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }
