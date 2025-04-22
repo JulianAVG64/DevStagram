@@ -42,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Definir una coleccion de registros (posts) relacionados a un usuario (uno a muchos)
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
