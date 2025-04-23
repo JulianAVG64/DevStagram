@@ -14,7 +14,7 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user) 
+    public function index(User $user)
     {
         // Obtener posts del usuario
         $posts = Post::where('user_id', $user->id)->paginate(20);
@@ -56,7 +56,7 @@ class PostController extends Controller
         // $post->user_id = auth()->user()->id;
         // $post->save();
 
-        
+
         // Otra forma de crear el registro usando las relaciones de Eloquent
         $request->user()->posts()->create([
             'titulo' => $request->titulo,
@@ -67,5 +67,12 @@ class PostController extends Controller
 
         // Redireccionar
         return redirect()->route('posts.index', auth()->user()->username);
+    }
+
+    public function show(User $user, Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post
+        ]);
     }
 }
