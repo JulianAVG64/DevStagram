@@ -1,4 +1,5 @@
 # Devstagram
+<img src="assets/logo.png" alt="DevStagram Logo" width="200"/>
 
 **Devstagram** es una red social básica inspirada en Instagram, desarrollada con Laravel 10, Tailwind CSS y Livewire. Este proyecto tiene fines educativos y está orientado a demostrar el uso de funcionalidades esenciales del framework Laravel.
 
